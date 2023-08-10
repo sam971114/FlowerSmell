@@ -9,14 +9,15 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class Member {
+public class Business {
 
-    @Id @GeneratedValue
-    @Column(name = "member_id")
+    @Id
+    @GeneratedValue
+    @Column(name = "business_id")
     private Long id;
 
     @Id @GeneratedValue
-    @Column(name = "member_password")
+    @Column(name = "business_password")
     private Long password;
 
     private String name;
@@ -24,9 +25,6 @@ public class Member {
     private String phoneNumber;
 
     private List<Order> orders = new ArrayList<>();
-
-    @Enumerated(EnumType.STRING)
-    private MemberStatus status;
 
     private String businessNumber;
 

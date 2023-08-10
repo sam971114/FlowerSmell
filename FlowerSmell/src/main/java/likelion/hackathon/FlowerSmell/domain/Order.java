@@ -19,8 +19,12 @@ public class Order {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
+    @JoinColumn(name = "personal_id")
+    private Personal personal_member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "business_id")
+    private Business business_member;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
@@ -28,8 +32,13 @@ public class Order {
     private LocalDateTime orderDate;
 
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setPersonalMember(Personal member) {
+        this.personal_member = member;
+        member.getOrders().add(this);
+    }
+
+    public void setBusinessMember(Business member) {
+        this.business_member = member;
         member.getOrders().add(this);
     }
 
@@ -38,9 +47,10 @@ public class Order {
         orderItem.setOrder(this);
     }
 
-    public static Order createOrder(Member member, OrderItem... orderItems) {
+    public static Order createOrder(Personal member, Business business, OrderItem... orderItems) {
         Order order = new Order();
-        order.setMember(member);
+        order.setPersonalMember(member);
+        order.setBusinessMember(business);
         for(OrderItem orderItem : orderItems) {
             order.addOrderItem(orderItem);
         }
