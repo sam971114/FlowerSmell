@@ -1,4 +1,4 @@
-package likelion.hackathon.FlowerSmell.domain;
+package likelion.hackathon.FlowerSmell.model.domain;
 
 import jakarta.persistence.*;
 import likelion.hackathon.FlowerSmell.exception.NotEnoughStockException;
@@ -16,14 +16,21 @@ public class Item {
     @Id
     @GeneratedValue
     @Column(name = "item_id")
-    private Long id;
+    private int id;
 
     private String name;
     private int price;
     private int stockQuantity;
 
-    @ManyToMany(mappedBy = "items")
-    private List<Item> items = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    public void setCategory(Category category) {
+        this.category = category;
+        category.getItems().add(this);
+    }
+
 
     //비즈니스 로직
     //재고 증가

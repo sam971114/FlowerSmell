@@ -1,9 +1,12 @@
-package likelion.hackathon.FlowerSmell.domain;
+package likelion.hackathon.FlowerSmell.model.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import likelion.hackathon.FlowerSmell.model.User;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,34 +14,31 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
     @Id
     @GeneratedValue
     @Column(name = "order_id")
-    private Long id;
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "personal_id")
-    private Personal personal_member;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "business_id")
-    private Business business_member;
+    @JoinColumn(name = "member_id")
+    private User member;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
+
     private LocalDateTime orderDate;
 
+//    @CreationTimestamp
+//    private Timestamp orderDate;
 
-    public void setPersonalMember(Personal member) {
-        this.personal_member = member;
-        member.getOrders().add(this);
-    }
 
-    public void setBusinessMember(Business member) {
-        this.business_member = member;
+
+    public void setMember(User member) {
+        this.member = member;
         member.getOrders().add(this);
     }
 
@@ -47,10 +47,12 @@ public class Order {
         orderItem.setOrder(this);
     }
 
-    public static Order createOrder(Personal member, Business business, OrderItem... orderItems) {
+
+
+    //생성 메서드
+    public static Order createOrder(User member,  OrderItem... orderItems) {
         Order order = new Order();
-        order.setPersonalMember(member);
-        order.setBusinessMember(business);
+        order.setMember(member);
         for(OrderItem orderItem : orderItems) {
             order.addOrderItem(orderItem);
         }
@@ -58,6 +60,9 @@ public class Order {
         return order;
     }
 
+
+
+    //조회 로직 - 전체 주문 가격 조회
     public int getTotalPrice() {
         return orderItems.stream()
                 .mapToInt(OrderItem::getTotalPrice)
