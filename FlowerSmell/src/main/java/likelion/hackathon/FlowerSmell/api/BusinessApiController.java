@@ -22,7 +22,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-@CrossOrigin("*")
+
 @RestController
 @RequiredArgsConstructor
 public class BusinessApiController {
