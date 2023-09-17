@@ -1,0 +1,156 @@
+.right-section,
+.left-section {
+  position: relative;
+  width: 50%;
+}
+.right-section{
+  text-align: center;
+}
+
+.large-image,
+.small-image {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.large-image {
+  width: 279px;
+  height: 289px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+
+.small-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.small-image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  margin: 0 5px;
+  opacity: 0.5;
+  object-fit: cover;
+}
+
+.small-image.selected {
+  border: 2px solid green;
+}
+
+.heart-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+.purchase-inquiry {
+  margin-top: 80px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.subscribe-button,
+.buy-button {
+  background-color: green;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.subscribe-button {
+  margin-top: 10px;
+  padding: 5px 7.5px;
+  width: 48%;
+}
+
+.buy-button {
+  background-color: white;
+  border: 1px solid green;
+  color: green;
+  margin-top: 5px;
+  padding: 5px 7.5px;
+  width: 48%;
+}
+
+.styled-label {
+  display: inline-block;
+  width: calc(50% - 10px);
+  height: 100px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.styled-input {
+  display: none;
+}
+
+.styled-image {
+  width: 110px;
+  height: 140px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  opacity: 1;
+}
+
+.styled-input:checked + .styled-image {
+  opacity: 0.5;
+}
+
+.map-box {
+  width: 100%;
+  height: 200px;
+  background-color: #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.styled-checkbox {
+  display: none;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  
+}
+
+.subscribe-button {
+  width: 200px;
+  height: 45px;
+  padding: 8px 12px;
+  margin: 0 auto;
+}
+
+.buy-button {
+  width: 200px;
+  height: 45px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+h2{
+  margin-top: 20px;
+  margin-bottom: 0px;
+}

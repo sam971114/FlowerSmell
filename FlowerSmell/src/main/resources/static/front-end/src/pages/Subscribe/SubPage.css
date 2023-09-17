@@ -1,0 +1,21 @@
+.subpage-container {
+  display: flex;
+  justify-content: center;
+}
+
+.subpage-content {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 추가된 스타일 */
+.SubPage .LeftSection {
+  flex: 1;
+  margin-right: 25px;
+}
+
+.SubPage .RightSection {
+  flex: 1;
+}

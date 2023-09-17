@@ -1,0 +1,85 @@
+
+/* fonts.css */
+
+/* GmarketSansTTFMedium */
+@font-face {
+  font-family: "GmarketSansTTFMedium";
+  font-weight: normal;
+  src: url("./fonts/GmarketSansTTFMedium.ttf") format("truetype");
+}
+
+/* Noto Sans KR Thin */
+@font-face {
+  font-family: "Noto Sans KR Thin";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-Thin.ttf") format("truetype");
+}
+
+/* Noto Sans KR ExtraLight */
+@font-face {
+  font-family: "Noto Sans KR ExtraLight";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-ExtraLight.ttf") format("truetype");
+}
+
+/* Noto Sans KR Light */
+@font-face {
+  font-family: "Noto Sans KR Light";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-Light.ttf") format("truetype");
+}
+
+/* Noto Sans KR Regular */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-Regular.ttf") format("truetype");
+}
+
+/* Noto Sans KR Medium */
+@font-face {
+  font-family: "Noto Sans KR Medium";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-Medium.ttf") format("truetype");
+}
+
+/* Noto Sans KR SemiBold */
+@font-face {
+  font-family: "Noto Sans KR SemiBold";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-SemiBold.ttf") format("truetype");
+}
+
+/* Noto Sans KR Bold */
+@font-face {
+  font-family: "Noto Sans KR Bold";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-Bold.ttf") format("truetype");
+}
+
+/* Noto Sans KR ExtraBold */
+@font-face {
+  font-family: "Noto Sans KR ExtraBold";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-ExtraBold.ttf") format("truetype");
+}
+
+/* Noto Sans KR Black */
+@font-face {
+  font-family: "Noto Sans KR Black";
+  font-weight: normal;
+  src: url("./fonts/NotoSansKR-Black.ttf") format("truetype");
+}
+
+
+body {
+  margin: 0;
+  font-family: "Noto Sans KR";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
