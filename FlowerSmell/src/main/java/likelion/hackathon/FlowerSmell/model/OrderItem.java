@@ -1,16 +1,14 @@
-package likelion.hackathon.FlowerSmell.model.domain;
+package likelion.hackathon.FlowerSmell.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
-@Table(name = "order_item")
-@Getter @Setter
+//@Table(name = "order_item")
+//@Getter @Setter
+@Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
@@ -19,14 +17,16 @@ public class OrderItem {
     @Column(name = "order_item_id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
+
+
 
     private int orderPrice;
     private int count;

@@ -2,7 +2,6 @@ package likelion.hackathon.FlowerSmell.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import likelion.hackathon.FlowerSmell.model.domain.Order;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -12,15 +11,15 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
+    @Column(name = "user_id")
     private int id;
     private String username;
     private String password;
-    private String email;
     private String role;
 
     private String phoneNumber;
@@ -33,8 +32,12 @@ public class User {
     private Timestamp createDate;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "users" , cascade = CascadeType.ALL)
+    private List<Business> businesses = new ArrayList<>();
+
 
 
 }

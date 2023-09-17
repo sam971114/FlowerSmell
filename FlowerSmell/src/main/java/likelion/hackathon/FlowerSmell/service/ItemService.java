@@ -1,6 +1,6 @@
 package likelion.hackathon.FlowerSmell.service;
 
-import likelion.hackathon.FlowerSmell.model.domain.Item;
+import likelion.hackathon.FlowerSmell.model.Item;
 import likelion.hackathon.FlowerSmell.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,9 @@ public class ItemService {
     }
 
     @Transactional
-    public void updateItem(Long id, String name, int price, int stockQuantity)
+    public void updateItem(int id, String name, int price, int stockQuantity)
     {
-        Item item = itemRepository.findOne(id);
+        Item item = itemRepository.findById(id).get();
         item.setName(name);
         item.setPrice(price);
         item.setStockQuantity(stockQuantity);
@@ -33,7 +33,11 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public Item findOne(Long itemId) {
-        return itemRepository.findOne(itemId);
+    public Item findOne(int itemId) {
+        return itemRepository.findById(itemId).get();
     }
+
+//    public List<Item> findAllByCategory() {
+//        return itemRepository.findAllByCategory();
+//    }
 }

@@ -1,16 +1,13 @@
-package likelion.hackathon.FlowerSmell.model.domain;
+package likelion.hackathon.FlowerSmell.model;
 
 import jakarta.persistence.*;
 import likelion.hackathon.FlowerSmell.exception.NotEnoughStockException;
-import lombok.Getter;
-import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Data;
 
 @Entity
-@Table(name = "item")
-@Getter @Setter
+//@Table(name = "item")
+//@Getter @Setter
+@Data
 public class Item {
 
     @Id
@@ -22,7 +19,7 @@ public class Item {
     private int price;
     private int stockQuantity;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
